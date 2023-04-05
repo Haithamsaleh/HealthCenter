@@ -28,11 +28,9 @@ import {
     DrawerCloseButton,
     Input,
     FormLabel,
-    FormHelperText,
     InputGroup,
     InputRightElement,
   } from '@chakra-ui/react';
-  import PasswordChecklist from "react-password-checklist";
 
   import {
     HamburgerIcon,

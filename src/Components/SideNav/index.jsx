@@ -9,20 +9,14 @@ import {
   Link,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
   FiStar,
   FiSettings,
-  FiMenu,
   FiArrowRightCircle,
 } from 'react-icons/fi';
 import { RiMentalHealthLine ,RiFolderHistoryLine} from "react-icons/ri";
-import Footer from "../Footer";
 import Card from '../Card';
 const LinkItems = [
   

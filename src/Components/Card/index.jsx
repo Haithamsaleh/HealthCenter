@@ -76,7 +76,7 @@ export default function Card() {
     sortedDoctors.sort((a, b) => b.Reviews - a.Reviews);
   } else if (sortBy === 'reviews-asc') {
     sortedDoctors.sort((a, b) => a.Reviews - b.Reviews);
-  } else {
+  } else if (sortBy === 'rating-desc') {
     sortedDoctors.sort((a, b) => b.rating - a.rating);
   }
   const ratingToStars = {
@@ -130,8 +130,8 @@ export default function Card() {
         </Text>
         <Text htmlFor="sort-by">Sort by:</Text>
         <Select focusBorderColor="green" id="sort-by" name="sort-by" maxW={'14rem'} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="rating-asc">Rating: High to Low</option>
-          <option value="rating-low-to-high">Rating: Low to High</option>
+          <option value="rating-desc">Rating: High to Low</option>
+          <option value="rating-asc">Rating: Low to High</option>
           <option value="reviews-desc">Reviews: High to Low</option>
           <option value="reviews-asc">Reviews: Low to High</option>
         </Select>
@@ -177,7 +177,7 @@ export default function Card() {
                   <VStack alignItems='center'>
                     <Icon
                       as={Doctor.icon1}
-                      color={'black'}
+                      color={'#009688'}
 
                       boxSize={5}
                       viewBox="0 0 20 20"
