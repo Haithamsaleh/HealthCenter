@@ -150,7 +150,7 @@ import {
           </Stack>
         </Flex>
   
-        <Collapse in={isOpenReportModal} animateOpacity>
+        <Collapse in={isOpen} animateOpacity>
           <MobileNav />
         </Collapse>
       </Box>
