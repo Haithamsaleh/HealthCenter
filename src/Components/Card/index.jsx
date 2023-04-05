@@ -24,10 +24,7 @@ import {
   StackDivider,
   Divider,
   useColorModeValue,
-  VisuallyHidden,
   List,
-  CardBody,
-  CardFooter,
   ListItem,
   Center,
   Input,
@@ -36,22 +33,15 @@ import {
   InputGroup,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Icon,
-  StatLabel,
   useToast,
-  StatNumber,
   useDisclosure,
   HStack,
 } from "@chakra-ui/react";
-import { ReactNode } from 'react';
 import { BsPerson } from 'react-icons/bs';
-import { FiServer } from 'react-icons/fi';
-import { GoLocation } from 'react-icons/go';
-import { FaInstagram, FaTwitter, FaYoutube, FaStar,FaRegStar } from "react-icons/fa";
+import {FaStar,FaRegStar } from "react-icons/fa";
 import { HiChatAlt2 } from "react-icons/hi";
-import { FcClock,FcPhone, FcFaq } from "react-icons/fc";
+import { FcClock,FcPhone,FcExpired,FcRadarPlot,FcHome, } from "react-icons/fc";
 import { useNavigate } from "react-router";
 import './style.css'
 export default function Card() {
@@ -71,12 +61,12 @@ export default function Card() {
 
   const Doctors = [
     
-    { id: 1, name: 'Dr. John Smith', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80', rating: '4', Reviews: '120', det: 'Internal Medicine Specialist', Specialty:'Cardiology',SpecialtyList:[' Cardiology ', ' Endocrinology ', ' Gastroenterology '], extraDetails:"Education: MD, University of California, San Francisco; Board Certified: Internal Medicine"},
-    { id: 2, name: 'Dr. Sarah Johnson', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80', rating: '3', Reviews: '90', det: 'Pediatrician', Specialty:'Pediatrics',SpecialtyList:[' Pediatrics ', 'Neonatology'], extraDetails:"Education: MD, Stanford University; Board Certified: Pediatrics"},
-    { id: 3, name: 'Dr. Michael Brown', img: 'https://plus.unsplash.com/premium_photo-1661766569022-1b7f918ac3f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80', rating: '4', Reviews: '75', det: 'Orthopedic Surgeon',SpecialtyList:[' Dermatology ', ' Cosmetic Dermatology ',' Orthopedics ', ' Sports Medicine '], Specialty:'Orthopedics', extraDetails:"Education: DO, New York Medical College; Board Certified: Orthopedic Surgery"},
-    { id: 4, name: 'Dr. Jennifer Lee', img: 'https://plus.unsplash.com/premium_photo-1661766708050-a164431ffdf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80', rating: '5', Reviews: '110', det: 'Dermatologist', Specialty:'Dermatology',SpecialtyList:[' Orthopedics ', ' Sports Medicine '], extraDetails:"Education: MD, Harvard Medical School; Board Certified: Dermatology"},
-    { id: 5, name: 'Dr. David Kim', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80', rating: '2', Reviews: '60', det: 'Gastroenterologist', Specialty:'Gastroenterology',SpecialtyList:[' Dermatology ', ' Cosmetic Dermatology '], extraDetails:"Education: MD, Yale School of Medicine; Board Certified: Gastroenterology"},
-    { id: 6, name: 'Dr. Emily Chen', img: 'https://plus.unsplash.com/premium_photo-1661757221486-183030ef8670?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80', rating: '1', Reviews: '85', det: 'Obstetrician/Gynecologist', Specialty:'Obstetrics and Gynecology',SpecialtyList:[' Dermatology '], extraDetails:"Education: MD, University of Texas Southwestern Medical Center; Board Certified: Obstetrics and Gynecology"}
+    { id: 1, name: 'Dr. John Smith', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80', rating: '4', Reviews: '120', det: 'Internal Medicine Specialist', Specialty:'Cardiology',SpecialtyList:[' Cardiology ', ' Endocrinology ', ' Gastroenterology '], extraDetails:"Education: MD, University of California, San Francisco; Board Certified: Internal Medicine",icon1:FcClock,icon2:FcPhone,icon3:HiChatAlt2,iconText1:"around the clock",iconText2:"available on phone",iconText3:"multi language",},
+    { id: 2, name: 'Dr. Sarah Johnson', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80', rating: '3', Reviews: '90', det: 'Pediatrician', Specialty:'Pediatrics',SpecialtyList:[' Pediatrics ', 'Neonatology'], extraDetails:"Education: MD, Stanford University; Board Certified: Pediatrics",icon1:HiChatAlt2,icon2:FcRadarPlot,icon3:FcHome,iconText1:"multi language",iconText2:"flexible",iconText3:"home visit",},
+    { id: 3, name: 'Dr. Michael Brown', img: 'https://plus.unsplash.com/premium_photo-1661766569022-1b7f918ac3f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80', rating: '4', Reviews: '75', det: 'Orthopedic Surgeon',SpecialtyList:[' Dermatology ', ' Cosmetic Dermatology ',' Orthopedics ', ' Sports Medicine '], Specialty:'Orthopedics', extraDetails:"Education: DO, New York Medical College; Board Certified: Orthopedic Surgery",icon1:FcExpired,icon2:FcPhone,icon3:FcRadarPlot,iconText1:"available in short notice",iconText2:"around-the-clock",iconText3:"flexible",},
+    { id: 4, name: 'Dr. Jennifer Lee', img: 'https://plus.unsplash.com/premium_photo-1661766708050-a164431ffdf5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80', rating: '5', Reviews: '110', det: 'Dermatologist', Specialty:'Dermatology',SpecialtyList:[' Orthopedics ', ' Sports Medicine '], extraDetails:"Education: MD, Harvard Medical School; Board Certified: Dermatology",icon1:HiChatAlt2,icon2:FcRadarPlot,icon3:FcHome,iconText1:"multi language",iconText2:"flexible",iconText3:"home visit",},
+    { id: 5, name: 'Dr. David Kim', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80', rating: '2', Reviews: '60', det: 'Gastroenterologist', Specialty:'Gastroenterology',SpecialtyList:[' Dermatology ', ' Cosmetic Dermatology '], extraDetails:"Education: MD, Yale School of Medicine; Board Certified: Gastroenterology",icon1:FcPhone,icon2:FcHome,icon3:FcExpired,iconText1:"available on phone",iconText2:"home visit",iconText3:"available in short notice",},
+    { id: 6, name: 'Dr. Emily Chen', img: 'https://plus.unsplash.com/premium_photo-1661757221486-183030ef8670?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80', rating: '1', Reviews: '85', det: 'Obstetrician/Gynecologist', Specialty:'Obstetrics and Gynecology',SpecialtyList:[' Dermatology '], extraDetails:"Education: MD, University of Texas Southwestern Medical Center; Board Certified: Obstetrics and Gynecology",icon1:HiChatAlt2,icon2:FcRadarPlot,icon3:FcHome,iconText1:"multi language",iconText2:"flexible",iconText3:"home visit",}
   ];
   const sortedDoctors = [...Doctors];
   if (sortBy === 'rating-asc') {
@@ -178,12 +168,12 @@ export default function Card() {
       </VStack>
       <Center>
       <Divider orientation='vertical'ml={8} borderColor='gray.200' borderWidth='1px' height='5rem' />
-        <SimpleGrid display={{ base: 'none', md: 'flex' }} columns={{ base: 5, md: 3 }} spacing={{ base: 5, lg: 8 }} justifyContent="center">
+        <SimpleGrid maxW={"sm"} display={{ base: 'none', md: 'flex' }} columns={{ base: 5, md: 3,lg:9 }} spacing={{ base: 5, lg: 8 }} justifyContent="center">
         <Divider orientation='vertical' ml="5rem" mr="5" />
-
+          
           <VStack alignItems='center'>
             <Icon
-              as={FcClock}
+              as={Doctor.icon1}
               color={'black'}
               
               boxSize={5}
@@ -191,35 +181,36 @@ export default function Card() {
               fill="currentColor"
               aria-hidden="true"
             />
-            <Box>24/7</Box>
+            <Box align='center'>{Doctor.iconText1}</Box>
           </VStack>
           <Divider orientation='vertical' borderColor='gray.200' borderWidth='1px' height='50px' />
 
           <VStack alignItems='center'>
             
             <Icon
-              as={FcPhone}
+              as={Doctor.icon2}
           
               boxSize={5}
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
             />
-            <Box align='center'>available on phone</Box>
+            <Box align='center'>{Doctor.iconText2}</Box>
           </VStack>
           <Divider orientation='vertical' borderColor='gray.200' borderWidth='1px' height='50px' />
 
           <VStack alignItems='center'>
             <Icon
-              as={HiChatAlt2}
+              as={Doctor.icon3}
               color={'#009688'}
               boxSize={5}
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
             />
-            <Box align='center'>multi language</Box>
+            <Box align='center'>{Doctor.iconText3}</Box>
           </VStack>
+          
         </SimpleGrid>
         <Divider orientation='vertical' />
       </Center>
@@ -318,7 +309,55 @@ export default function Card() {
                         </List>
                        
                       </SimpleGrid>
+
+                      <StackDivider
+                        borderColor={useColorModeValue('gray.200', 'gray.600')}
+                      />
                     </Box>
+                    <SimpleGrid maxW={"sm"} display={{ base: 'none', md: 'flex' }} columns={{ base: 5, md: 3, }} spacing={{ base: 5, lg: 8 }} justifyContent="center">
+        <Divider orientation='vertical'  />
+          
+          <VStack alignItems='center'>
+            <Icon
+              as={Doctor.icon1}
+              color={'black'}
+              
+              boxSize={5}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+            <Box align='center'>{Doctor.iconText1}</Box>
+          </VStack>
+          <Divider orientation='vertical' borderColor='gray.200' borderWidth='1px' height='50px' />
+
+          <VStack alignItems='center'>
+            
+            <Icon
+              as={Doctor.icon2}
+          
+              boxSize={5}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+            <Box align='center'>{Doctor.iconText2}</Box>
+          </VStack>
+          <Divider orientation='vertical' borderColor='gray.200' borderWidth='1px' height='50px' />
+
+          <VStack alignItems='center'>
+            <Icon
+              as={Doctor.icon3}
+              color={'#009688'}
+              boxSize={5}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+            <Box align='center'>{Doctor.iconText3}</Box>
+          </VStack>
+          
+        </SimpleGrid>
 
                   </Stack>
 
